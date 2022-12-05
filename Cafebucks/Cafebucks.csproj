@@ -1,0 +1,382 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F8354E7-2A58-4B7D-A35A-274017858E16}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cafebucks</RootNamespace>
+    <AssemblyName>Cafebucks</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44367</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-grid.rtl.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap.css" />
+    <Content Include="bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="bootstrap\dist\css\bootstrap.rtl.css" />
+    <Content Include="bootstrap\dist\css\bootstrap.rtl.min.css" />
+    <Content Include="bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="bootstrap\dist\js\bootstrap.esm.js" />
+    <Content Include="bootstrap\dist\js\bootstrap.esm.min.js" />
+    <Content Include="bootstrap\dist\js\bootstrap.js" />
+    <Content Include="bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\dist\alert.js" />
+    <Content Include="bootstrap\js\dist\base-component.js" />
+    <Content Include="bootstrap\js\dist\button.js" />
+    <Content Include="bootstrap\js\dist\carousel.js" />
+    <Content Include="bootstrap\js\dist\collapse.js" />
+    <Content Include="bootstrap\js\dist\dom\data.js" />
+    <Content Include="bootstrap\js\dist\dom\event-handler.js" />
+    <Content Include="bootstrap\js\dist\dom\manipulator.js" />
+    <Content Include="bootstrap\js\dist\dom\selector-engine.js" />
+    <Content Include="bootstrap\js\dist\dropdown.js" />
+    <Content Include="bootstrap\js\dist\modal.js" />
+    <Content Include="bootstrap\js\dist\offcanvas.js" />
+    <Content Include="bootstrap\js\dist\popover.js" />
+    <Content Include="bootstrap\js\dist\scrollspy.js" />
+    <Content Include="bootstrap\js\dist\tab.js" />
+    <Content Include="bootstrap\js\dist\toast.js" />
+    <Content Include="bootstrap\js\dist\tooltip.js" />
+    <Content Include="bootstrap\js\dist\util\backdrop.js" />
+    <Content Include="bootstrap\js\dist\util\component-functions.js" />
+    <Content Include="bootstrap\js\dist\util\config.js" />
+    <Content Include="bootstrap\js\dist\util\focustrap.js" />
+    <Content Include="bootstrap\js\dist\util\index.js" />
+    <Content Include="bootstrap\js\dist\util\sanitizer.js" />
+    <Content Include="bootstrap\js\dist\util\scrollbar.js" />
+    <Content Include="bootstrap\js\dist\util\swipe.js" />
+    <Content Include="bootstrap\js\dist\util\template-factory.js" />
+    <Content Include="bootstrap\js\src\alert.js" />
+    <Content Include="bootstrap\js\src\base-component.js" />
+    <Content Include="bootstrap\js\src\button.js" />
+    <Content Include="bootstrap\js\src\carousel.js" />
+    <Content Include="bootstrap\js\src\collapse.js" />
+    <Content Include="bootstrap\js\src\dom\data.js" />
+    <Content Include="bootstrap\js\src\dom\event-handler.js" />
+    <Content Include="bootstrap\js\src\dom\manipulator.js" />
+    <Content Include="bootstrap\js\src\dom\selector-engine.js" />
+    <Content Include="bootstrap\js\src\dropdown.js" />
+    <Content Include="bootstrap\js\src\modal.js" />
+    <Content Include="bootstrap\js\src\offcanvas.js" />
+    <Content Include="bootstrap\js\src\popover.js" />
+    <Content Include="bootstrap\js\src\scrollspy.js" />
+    <Content Include="bootstrap\js\src\tab.js" />
+    <Content Include="bootstrap\js\src\toast.js" />
+    <Content Include="bootstrap\js\src\tooltip.js" />
+    <Content Include="bootstrap\js\src\util\backdrop.js" />
+    <Content Include="bootstrap\js\src\util\component-functions.js" />
+    <Content Include="bootstrap\js\src\util\config.js" />
+    <Content Include="bootstrap\js\src\util\focustrap.js" />
+    <Content Include="bootstrap\js\src\util\index.js" />
+    <Content Include="bootstrap\js\src\util\sanitizer.js" />
+    <Content Include="bootstrap\js\src\util\scrollbar.js" />
+    <Content Include="bootstrap\js\src\util\swipe.js" />
+    <Content Include="bootstrap\js\src\util\template-factory.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Modals\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap\dist\css\bootstrap-grid.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap.rtl.css.map" />
+    <Content Include="bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+    <Content Include="bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="bootstrap\dist\js\bootstrap.esm.js.map" />
+    <Content Include="bootstrap\dist\js\bootstrap.esm.min.js.map" />
+    <Content Include="bootstrap\dist\js\bootstrap.js.map" />
+    <Content Include="bootstrap\dist\js\bootstrap.min.js.map" />
+    <Content Include="bootstrap\js\dist\alert.js.map" />
+    <Content Include="bootstrap\js\dist\base-component.js.map" />
+    <Content Include="bootstrap\js\dist\button.js.map" />
+    <Content Include="bootstrap\js\dist\carousel.js.map" />
+    <Content Include="bootstrap\js\dist\collapse.js.map" />
+    <Content Include="bootstrap\js\dist\dom\data.js.map" />
+    <Content Include="bootstrap\js\dist\dom\event-handler.js.map" />
+    <Content Include="bootstrap\js\dist\dom\manipulator.js.map" />
+    <Content Include="bootstrap\js\dist\dom\selector-engine.js.map" />
+    <Content Include="bootstrap\js\dist\dropdown.js.map" />
+    <Content Include="bootstrap\js\dist\modal.js.map" />
+    <Content Include="bootstrap\js\dist\offcanvas.js.map" />
+    <Content Include="bootstrap\js\dist\popover.js.map" />
+    <Content Include="bootstrap\js\dist\scrollspy.js.map" />
+    <Content Include="bootstrap\js\dist\tab.js.map" />
+    <Content Include="bootstrap\js\dist\toast.js.map" />
+    <Content Include="bootstrap\js\dist\tooltip.js.map" />
+    <Content Include="bootstrap\js\dist\util\backdrop.js.map" />
+    <Content Include="bootstrap\js\dist\util\component-functions.js.map" />
+    <Content Include="bootstrap\js\dist\util\config.js.map" />
+    <Content Include="bootstrap\js\dist\util\focustrap.js.map" />
+    <Content Include="bootstrap\js\dist\util\index.js.map" />
+    <Content Include="bootstrap\js\dist\util\sanitizer.js.map" />
+    <Content Include="bootstrap\js\dist\util\scrollbar.js.map" />
+    <Content Include="bootstrap\js\dist\util\swipe.js.map" />
+    <Content Include="bootstrap\js\dist\util\template-factory.js.map" />
+    <Content Include="bootstrap\LICENSE" />
+    <Content Include="bootstrap\package.json" />
+    <Content Include="bootstrap\README.md" />
+    <Content Include="bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="bootstrap\scss\bootstrap-utilities.scss" />
+    <Content Include="bootstrap\scss\bootstrap.scss" />
+    <Content Include="bootstrap\scss\forms\_floating-labels.scss" />
+    <Content Include="bootstrap\scss\forms\_form-check.scss" />
+    <Content Include="bootstrap\scss\forms\_form-control.scss" />
+    <Content Include="bootstrap\scss\forms\_form-range.scss" />
+    <Content Include="bootstrap\scss\forms\_form-select.scss" />
+    <Content Include="bootstrap\scss\forms\_form-text.scss" />
+    <Content Include="bootstrap\scss\forms\_input-group.scss" />
+    <Content Include="bootstrap\scss\forms\_labels.scss" />
+    <Content Include="bootstrap\scss\forms\_validation.scss" />
+    <Content Include="bootstrap\scss\helpers\_clearfix.scss" />
+    <Content Include="bootstrap\scss\helpers\_color-bg.scss" />
+    <Content Include="bootstrap\scss\helpers\_colored-links.scss" />
+    <Content Include="bootstrap\scss\helpers\_position.scss" />
+    <Content Include="bootstrap\scss\helpers\_ratio.scss" />
+    <Content Include="bootstrap\scss\helpers\_stacks.scss" />
+    <Content Include="bootstrap\scss\helpers\_stretched-link.scss" />
+    <Content Include="bootstrap\scss\helpers\_text-truncation.scss" />
+    <Content Include="bootstrap\scss\helpers\_visually-hidden.scss" />
+    <Content Include="bootstrap\scss\helpers\_vr.scss" />
+    <Content Include="bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="bootstrap\scss\mixins\_backdrop.scss" />
+    <Content Include="bootstrap\scss\mixins\_banner.scss" />
+    <Content Include="bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="bootstrap\scss\mixins\_color-scheme.scss" />
+    <Content Include="bootstrap\scss\mixins\_container.scss" />
+    <Content Include="bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="bootstrap\scss\mixins\_image.scss" />
+    <Content Include="bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="bootstrap\scss\mixins\_table-variants.scss" />
+    <Content Include="bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="bootstrap\scss\mixins\_utilities.scss" />
+    <Content Include="bootstrap\scss\mixins\_visually-hidden.scss" />
+    <Content Include="bootstrap\scss\utilities\_api.scss" />
+    <Content Include="bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="bootstrap\scss\_accordion.scss" />
+    <Content Include="bootstrap\scss\_alert.scss" />
+    <Content Include="bootstrap\scss\_badge.scss" />
+    <Content Include="bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="bootstrap\scss\_button-group.scss" />
+    <Content Include="bootstrap\scss\_buttons.scss" />
+    <Content Include="bootstrap\scss\_card.scss" />
+    <Content Include="bootstrap\scss\_carousel.scss" />
+    <Content Include="bootstrap\scss\_close.scss" />
+    <Content Include="bootstrap\scss\_containers.scss" />
+    <Content Include="bootstrap\scss\_dropdown.scss" />
+    <Content Include="bootstrap\scss\_forms.scss" />
+    <Content Include="bootstrap\scss\_functions.scss" />
+    <Content Include="bootstrap\scss\_grid.scss" />
+    <Content Include="bootstrap\scss\_helpers.scss" />
+    <Content Include="bootstrap\scss\_images.scss" />
+    <Content Include="bootstrap\scss\_list-group.scss" />
+    <Content Include="bootstrap\scss\_maps.scss" />
+    <Content Include="bootstrap\scss\_mixins.scss" />
+    <Content Include="bootstrap\scss\_modal.scss" />
+    <Content Include="bootstrap\scss\_nav.scss" />
+    <Content Include="bootstrap\scss\_navbar.scss" />
+    <Content Include="bootstrap\scss\_offcanvas.scss" />
+    <Content Include="bootstrap\scss\_pagination.scss" />
+    <Content Include="bootstrap\scss\_placeholders.scss" />
+    <Content Include="bootstrap\scss\_popover.scss" />
+    <Content Include="bootstrap\scss\_progress.scss" />
+    <Content Include="bootstrap\scss\_reboot.scss" />
+    <Content Include="bootstrap\scss\_root.scss" />
+    <Content Include="bootstrap\scss\_spinners.scss" />
+    <Content Include="bootstrap\scss\_tables.scss" />
+    <Content Include="bootstrap\scss\_toasts.scss" />
+    <Content Include="bootstrap\scss\_tooltip.scss" />
+    <Content Include="bootstrap\scss\_transitions.scss" />
+    <Content Include="bootstrap\scss\_type.scss" />
+    <Content Include="bootstrap\scss\_utilities.scss" />
+    <Content Include="bootstrap\scss\_variables.scss" />
+    <Content Include="Main.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="Uploads\Profile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{37c895ab-e1fb-4036-ba8a-08778a420017}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{86dde674-96e3-4c94-a637-696541d42ed3}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2949</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44367/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
