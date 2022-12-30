@@ -49,7 +49,6 @@ namespace Cafebucks
                 user.SpeakEnglish = check_english.Checked;
                 user.SpeakHindi = check_hindi.Checked;
 
-
                 string path = "";
                 if (file_profile.HasFile)
                 {

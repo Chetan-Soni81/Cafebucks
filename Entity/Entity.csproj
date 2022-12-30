@@ -41,17 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Admin.cs" />
+    <Compile Include="Admin\AdminModel.cs" />
     <Compile Include="Learn\LoginModel.cs" />
     <Compile Include="Learn\RegistrationModel.cs" />
-    <Compile Include="Learn\User.cs" />
+    <Compile Include="Learn\UserObj.cs" />
+    <Compile Include="Product\CartObj.cs" />
+    <Compile Include="Product\CartSummaryObj.cs" />
     <Compile Include="Product\Category.cs" />
-    <Compile Include="Product\Product.cs" />
+    <Compile Include="Product\ProductItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Address.cs" />
     <Compile Include="User\Cart.cs" />
-    <Compile Include="User\Order.cs" />
-    <Compile Include="User\User.cs" />
+    <Compile Include="User\OrderItem.cs" />
+    <Compile Include="User\OrderSummary.cs" />
+    <Compile Include="User\RegistrationUserObj.cs" />
+    <Compile Include="User\UserObj.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

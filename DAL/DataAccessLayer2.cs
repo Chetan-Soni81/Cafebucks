@@ -18,7 +18,7 @@ namespace DAL
         #region methods
         private void OpenConnection()
         {
-            connectionString = ConfigurationSettings.AppSettings["ConnectionString"];
+            connectionString = ConfigurationSettings.AppSettings["Connectioncafebucks"];
             conn = new SqlConnection(connectionString);
 
             if(conn.State != ConnectionState.Open)
@@ -169,12 +169,30 @@ namespace DAL
                 }
                 catch (Exception ex)
                 {
-
+                    throw;
                     return 0;
                 }
             }
 
             return i;
+        }
+
+        public object ExecuteScalar(string procname, SqlParameter[] sqlParameters)
+        {
+            object o;
+            using (SqlCommand cmd = CreateCommand(procname, sqlParameters))
+            {
+                try
+                {
+                    o = cmd.ExecuteScalar();
+                }
+                catch(Exception ex)
+                {
+                    return null;
+                }
+            }
+
+            return o;
         }
     }
 }

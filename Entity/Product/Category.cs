@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entity.Product
 {
-    class Category
+    public class Category
     {
         public int Id { get; set; }
         public string CategoryName{ get; set; }
+        public bool isActive { get; set; }
     }
 }

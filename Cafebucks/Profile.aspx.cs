@@ -16,7 +16,7 @@ namespace Cafebucks
         {
             int uid = (int) Session["user"];
 
-            User user = userBLL.GetUserById(uid);
+            UserObj user = userBLL.GetUserById(uid);
 
             img_profile.ImageUrl = user.ImagePath;
             lbl_name.Text = user.Firstname + (user.Middlename.Length > 0 ? user.Middlename : "") + user.Lastname;

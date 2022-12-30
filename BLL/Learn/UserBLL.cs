@@ -73,9 +73,9 @@ namespace BLL.Learn
             }
         }
 
-        public User GetUserById(int uid)
+        public UserObj GetUserById(int uid)
         {
-            User user = new User();
+            UserObj user = new UserObj();
 
             using (SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_show_userbyid", uid))
             {
