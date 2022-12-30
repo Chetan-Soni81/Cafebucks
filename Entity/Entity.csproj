@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Admin.cs" />
+    <Compile Include="Admin\AdminModel.cs" />
     <Compile Include="Learn\LoginModel.cs" />
     <Compile Include="Learn\RegistrationModel.cs" />
     <Compile Include="Learn\User.cs" />

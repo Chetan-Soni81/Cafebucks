@@ -8,14 +8,206 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css" /> 
     <script src="bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+    <script>
+        $(function () {
+            var current = location.pathname;
+            $('.nav__item a').each(function () {
+                var $this = $(this);
+                // if the current path is like this link, make it active
+                if ($this.attr('href') === current) {
+                    $this.addClass('active');
+                }
+            })
+        })
+
+    </script>
+    <header>
+            <div class="header__main">
+                <div class="container">
+                    <div class="navigation">
+                        <a href="/" class="nav__title">
+                            <img src="images/favicon-32x32.png" width="40" height="32" alt="logo" /> CafeBucks
+                        </a>
+
+                        <ul class="nav col-12 col-lg-auto text-small nav__links">
+                            <li class='nav__item nav-link'>
+                                <a href="/Home.aspx" class="nav-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav__item nav-link">
+                                <a href="/dashboard" class="nav-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM320 352c0-26.9-16.5-49.9-40-59.3V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V292.7c-23.5 9.5-40 32.5-40 59.3c0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176c17.7 0 32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32zm-16 80c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32zm288 32c17.7 0 32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32zM400 144c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32z"/></svg>
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li class='nav__item nav-link'>
+                                <a href="/orders" class="nav-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 64v64H64V96h88zm56 0h88v64H208V96zm240 0v64H360V96h88zM64 224h88v64H64V224zm232 0v64H208V224h88zm64 0h88v64H360V224zM152 352v64H64V352h88zm56 0h88v64H208V352zm240 0v64H360V352h88z"/></svg>
+                                    Orders
+                                </a>
+                            </li>
+
+                            <li class='nav__item nav-link'>
+                                <a href="/cart" class="nav-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                                    Cart
+                                </a>
+                            </li>
+
+                            <li class='nav__item nav-link'>
+                                <a href="/product" class="nav-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 448 512"><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 96c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24zm200-24c0 13.3-10.7 24-24 24s-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24z"/></svg>
+                                    <i class="fa-sharp fa-solid fa-grid"></i>
+                                    Products
+                                </a>
+                            </li>
+
+                            <li class='nav__item dropdown nav-link'>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM256 272c39.8 0 72-32.2 72-72s-32.2-72-72-72s-72 32.2-72 72s32.2 72 72 72z"/></svg>
+                                    <div class="dropdown-content">
+                                        <a href="/LoginPage.aspx">Login/Signup</a>
+                                        <a href="/order">Orders</a>
+                                        <a href="/Home.aspx">Account Settings</a>
+                                    </div>
+                                    Customers
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+
+    <footer>
+      <div class="container p-4 pb-0">
+        <section class="">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 col-xl-3 footer__col">
+              <h6>
+                CaféBucks
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none" />
+
+            <div class="col-md-2 col-lg-2 col-xl-2 footer__col">
+              <h6>Products</h6>
+              <p>
+                <a href="/">Burgers</a>
+              </p>
+              <p>
+                <a href="/" >Pizzas</a>
+              </p>
+              <p>
+                <a href="/">Coffee</a>
+              </p>
+              <p>
+                <a href="/">Ice creames</a>
+              </p>
+            </div>
+            
+            <hr class="w-100 clearfix d-md-none" />
+
+            <div class="col-md-3 col-lg-2 col-xl-2 footer__col">
+              <h6>
+                Useful links
+              </h6>
+              <p>
+                <a href="/">Your Account</a>
+              </p>
+              <p>
+                <a href="/AdminLogin.aspx">Admin</a>
+              </p>
+              <p>
+                <a href="/">Hot Deals</a>
+              </p>
+              <p>
+                <a href="/">Help</a>
+              </p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none" />
+
+            <div class="col-md-4 col-lg-3 col-xl-3 footer__col">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+              <p class='d-flex align-items-center'><FaHome class="me-3" /> Ayodhya, UP 224001, India</p>
+              <p class='d-flex align-items-center'><FaEnvelope class='me-3' /> info@cafebucks.com</p>
+              <p class='d-flex align-items-center'><FaPhone class='me-3' /> + 91 01 234 567 88</p>
+              <p class='d-flex align-items-center'><FaPrint class='me-3' /> + 91 01 234 567 89</p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="my-3" />
+
+        <section class="p-3 pt-0">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+              <div class="p-3">
+                © 2022 Copyright:
+                <a href="https://mdbootstrap.com/" class='text-white ms-1'
+                >www.Cafebucks.com</a
+                >
+              </div>
+            </div>
+
+            <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+              
+              <a href="/"
+                class="btn btn-outline-light btn-floating m-1 text-white"
+                role="button"
+              ><FaFacebookF/></a>
+
+              
+              <a href="/"
+                class="btn btn-outline-light btn-floating m-1 text-white"
+                role="button"
+              ><FaTwitter/></a>
+
+              
+              <a href="/"
+                class="btn btn-outline-light btn-floating m-1 text-white"
+                role="button"
+              ><FaGoogle/>
+              </a>
+
+              
+              <a href="/"
+                class="btn btn-outline-light btn-floating m-1 text-white"
+                role="button">
+              <FaInstagram/>
+              </a>
+            </div>
+            
+          </div>
+        </section>
+        
+      </div>
+      
+    </footer>
+
 </body>
 </html>
