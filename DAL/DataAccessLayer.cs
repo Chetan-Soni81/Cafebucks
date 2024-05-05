@@ -18,7 +18,7 @@ namespace DAL
         #region methods
         private void OpenConnection()
         {
-            connectionString = ConfigurationSettings.AppSettings["ConnectionString"];
+            connectionString = ConfigurationSettings.AppSettings["WebConString"];
             conn = new SqlConnection(connectionString);
 
             if (conn.State != ConnectionState.Open)

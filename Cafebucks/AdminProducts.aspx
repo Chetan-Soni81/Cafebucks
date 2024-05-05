@@ -55,11 +55,11 @@
                         <asp:BoundField DataField="price" HeaderText="Product Price" />
                         <asp:BoundField DataField="category" HeaderText="Product Category" />
                         <asp:BoundField DataField="subcategory" HeaderText="Product Subcategory" />
-                        <asp:BoundField DataField="mainImage" HeaderText="Product Thumbnail" />
-                        <asp:BoundField DataField="image2" HeaderText="Product Image 1" />
-                        <asp:BoundField DataField="image3" HeaderText="Product Image 2" />
-                        <asp:BoundField DataField="image4" HeaderText="Product Image 3" />
-                        <asp:BoundField DataField="image5" HeaderText="Product Image 4" />
+                        <asp:TemplateField HeaderText="Product Thumbnail">
+                            <ItemTemplate>
+                                <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("mainImage") %>' Height="50" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="description" HeaderText="Product description" />
                         <asp:CheckBoxField DataField="isAvailable" HeaderText="Is Available" />
                         <asp:CheckBoxField DataField="isActive" HeaderText="Is Active" />
@@ -72,7 +72,7 @@
                             <ItemTemplate>
                                 <span class="d-flex">
                                     <asp:Button ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" CssClass="btn btn-warning rounded-0" Text="Edit"></asp:Button>
-                                    <asp:Button ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" CssClass="btn btn-danger  rounded-0 ms-2" ForeColor="White" Text="Delete"></asp:Button>
+                                    <asp:Button ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" CommandArgument='<%# Eval("productid") %>' CssClass="btn btn-danger  rounded-0 ms-2" ForeColor="White" Text="Delete"></asp:Button>
                                 </span>
                             </ItemTemplate>
                         </asp:TemplateField>

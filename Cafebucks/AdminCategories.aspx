@@ -22,13 +22,32 @@
             <div class="cate_table_panel">
                 <h3>Category List</h3>
                 <div class="table-responsive">
-                    <asp:GridView ID="gviewCategory" runat="server" AutoGenerateColumns="false" CssClass="table table-hover" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="gviewCategory_RowUpdating" OnRowDeleting="gviewCategory_RowDeleting">
+                    <asp:GridView ID="gviewCategory" runat="server" AutoGenerateColumns="false" DataKeyNames="categoryId" CssClass="table table-hover table-bordered" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="gviewCategory_RowUpdating" OnRowDeleting="gviewCategory_RowDeleting">
                         <Columns>
-                            <asp:BoundField DataField="categoryId" HeaderText="Id" />
-                            <asp:BoundField DataField="categoryName" HeaderText="Category Name" />
+                            <asp:TemplateField HeaderText="SrNo">
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex + 1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Category Name">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCategoryName" runat="server" Text='<%# Eval("categoryName") %>' />
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="txtCategoryName" runat="server" Text='<%# Eval("categoryName") %>' />
+                                </EditItemTemplate>
+                            </asp:TemplateField>
                             <asp:CheckBoxField DataField="isActive" HeaderText="Is Active" />
-                            <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="button update_btn text-decoration-none"/>
-                            <asp:CommandField ShowDeleteButton="true" ControlStyle-CssClass="button delete_btn text-decoration-none"/>
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnEdit" runat="server" CommandName="Edit" CssClass="btn btn-sm btn-warning" Text="Edit" />
+                                    <asp:Button ID="btnDelete" runat="server" CommandName="Delete" CssClass="btn btn-sm btn-danger" Text="Delete" />
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update" CssClass="btn btn-sm btn-success"><i class="fa fa-save"></i> Save</asp:LinkButton>
+                                    <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" CssClass="btn btn-sm btn-danger" Text="Cancel" />
+                                </EditItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>

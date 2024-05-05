@@ -88,24 +88,5 @@ namespace Cafebucks
             }
         }
 
-        //    protected void btnSubmit_Click(object sender, EventArgs e)
-        //    {
-        //        Address address = new Address();
-
-        //        try
-        //        {
-        //            address.House = txtBuilding.Text;
-        //            address.Street = txtStreet.Text;
-        //            address.Locality = txtAddressLine2.Text;
-        //            address.State = Convert.ToInt32(dropState.SelectedValue);
-        //            address.City = Convert.ToInt32(dropCities.SelectedValue);
-        //            address.PIN = Convert.ToInt32(txtZip.Text);
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw;
-        //        }
-        //    }
     }
 }

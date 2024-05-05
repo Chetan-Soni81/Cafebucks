@@ -51,6 +51,15 @@ namespace Cafebucks
         protected global::System.Web.UI.WebControls.Label lblAddress;
 
         /// <summary>
+        /// txtAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+
+        /// <summary>
         /// BtnChangeAddress control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Cafebucks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnChangeAddress;
+
+        /// <summary>
+        /// btnSaveAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveAddress;
 
         /// <summary>
         /// repeatOrderItems control.
@@ -78,13 +96,13 @@ namespace Cafebucks
         protected global::System.Web.UI.WebControls.Label lblTotalItems;
 
         /// <summary>
-        /// lblFinalPrice control.
+        /// lblTotalPayable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFinalPrice;
+        protected global::System.Web.UI.WebControls.Label lblTotalPayable;
 
         /// <summary>
         /// lblDeliveryCharges control.
@@ -96,6 +114,15 @@ namespace Cafebucks
         protected global::System.Web.UI.WebControls.Label lblDeliveryCharges;
 
         /// <summary>
+        /// lblGstRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGstRate;
+
+        /// <summary>
         /// lblAddedGst control.
         /// </summary>
         /// <remarks>
@@ -105,13 +132,13 @@ namespace Cafebucks
         protected global::System.Web.UI.WebControls.Label lblAddedGst;
 
         /// <summary>
-        /// lblTotalPayable control.
+        /// lblFinalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalPayable;
+        protected global::System.Web.UI.WebControls.Label lblFinalPrice;
 
         /// <summary>
         /// BtnPlaceOrder control.

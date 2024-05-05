@@ -15,6 +15,7 @@ namespace Entity.User
         public string Lastname { get; set; }
         public string Email { get; set; }
         public string Mobileno { get; set; }
+        public string Address { get; set; }
         public bool isActive { get; set; }
         public bool isDelete { get; set; }
 

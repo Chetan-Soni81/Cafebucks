@@ -35,7 +35,7 @@ namespace Cafebucks
                 if(i != 0)
                 {
                     Session["user"] = i;
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Default.aspx");
                 }
                 else
                 {

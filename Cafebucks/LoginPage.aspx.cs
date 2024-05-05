@@ -30,7 +30,7 @@ namespace Cafebucks
                 if(i != 0)
                 {
                     Session["User"] = i;
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Default.aspx");
                 } else
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Alert", "<script>alert('Invalid Username or Password');</script>", false);

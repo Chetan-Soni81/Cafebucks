@@ -40,7 +40,7 @@ namespace Cafebucks
             Session.Abandon();
             userList.Visible = false;
             defaultList.Visible = true;
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Default.aspx");
         }
     }
 }

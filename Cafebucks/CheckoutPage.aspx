@@ -8,26 +8,29 @@
 
             <div class="px-4 py-3 border shadow-sm d-flex align-items-start bg-white">
                 <div>
-                    <h3 class="fs-6 fw-semibold">LOGIN</h3>
+                    <h3 class="fs-6 fw-semibold">Name & Mobile No</h3>
                     <h3 class="fs-6 fw-normal">
                         <asp:Label ID="lblUsername" runat="server" Text="Chetan Soni" />
                         <asp:Label ID="lblPhoneNo" CssClass="fw-semibold" runat="server" Text="+918840744109" /></h3>
                 </div>
 
                 <div class="ms-auto d">
-                    <asp:Button ID="BtnChangeAccount" runat="server" CssClass="btn border text-primary px-4 rounded-0" Text="Change" />
+                    <asp:Button ID="BtnChangeAccount" runat="server" CssClass="btn border text-primary px-4 rounded-0" Text="Change" Visible="false" />
                 </div>
             </div>
 
             <div class="px-4 py-3 border shadow-sm bg-white mt-3 d-flex align-items-start">
-                <div>
+                <div class="w-100 pe-3">
                     <h3 class="fs-6 text-uppercase fw-semibold">Delivery Address</h3>
                     <h3 class="fs-6 fw-normal">
-                        <asp:Label ID="lblAddress" runat="server" Text="Chetan Stationers, near Rajkaran Inter College, Jamunia Bagh, Faizabad, Uttar Pradesh - 224001" /></h3>
+                        <asp:Label ID="lblAddress" runat="server" Text="Chetan Stationers, near Rajkaran Inter College, Jamunia Bagh, Faizabad, Uttar Pradesh - 224001" />
+                        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" Visible="false" />
+                    </h3>
                 </div>
 
                 <div class="ms-auto d-flex align-items-center">
-                    <asp:Button ID="BtnChangeAddress" runat="server" CssClass="btn border text-primary px-4 rounded-0" Text="Change" />
+                    <asp:Button ID="BtnChangeAddress" runat="server" CssClass="btn border text-primary px-4 rounded-0" Text="Change" OnClick="BtnChangeAddress_Click" />
+                    <asp:Button ID="btnSaveAddress" runat="server" CssClass="btn border text-primary px-4 rounded-0" Text="Save" Visible="false" OnClick="btnSaveAddress_Click" />
                 </div>
             </div>
 
@@ -101,26 +104,30 @@
                 </div>
                 <div>
                     <div class="d-flex px-3 mb-3">
-                        <span>Price(<asp:Label ID="lblTotalItems" runat="server" Text="1" /> item)</span>
+                        <span>Price(<asp:Label ID="lblTotalItems" runat="server" Text="1" />
+                            item)</span>
 
-                        <span class="ms-auto">₹<asp:Label ID="lblFinalPrice" runat="server" Text="999" /></span>
+                        <span class="ms-auto">₹<asp:Label ID="lblTotalPayable" runat="server" Text="999" /></span>
                     </div>
                     <div class="d-flex px-3 mb-3">
                         <span>Delivery Charges</span>
-                        <span class="ms-auto"><asp:Label ID="lblDeliveryCharges" runat="server" Text="Free" /></span>
+                        <span class="ms-auto">
+                            <asp:Label ID="lblDeliveryCharges" runat="server" Text="Free" /></span>
                     </div>
                     <div class="d-flex px-3 mb-3">
-                        <span>GST %</span>
-                        <span class="ms-auto"><asp:Label ID="lblAddedGst" runat="server" Text="0.00" /></span>
+                        <span>GST
+                            <asp:Label runat="server" ID="lblGstRate" Text="0.00" />%</span>
+                        <span class="ms-auto">
+                            <asp:Label ID="lblAddedGst" runat="server" Text="0.00" /></span>
                     </div>
                     <hr />
                     <div class="d-flex px-3 fw-semibold fs-5">
                         <span>Total Payable</span>
-                        <span class="ms-auto text-success">₹<asp:Label ID="lblTotalPayable" runat="server" Text="999" /></span>
+                        <span class="ms-auto text-success">₹<asp:Label ID="lblFinalPrice" runat="server" Text="999" /></span>
                     </div>
-                    
+
                     <div class="d-flex px-3 mt-3">
-                        <asp:Button ID="BtnPlaceOrder" runat="server" Text="Place Order" BackColor="DarkGreen" ForeColor="White" CssClass="btn btn-tang w-100 fs-5 fw-semibold" OnClick="BtnPlaceOrder_Click"/>
+                        <asp:Button ID="BtnPlaceOrder" runat="server" Text="Place Order" BackColor="DarkGreen" ForeColor="White" CssClass="btn btn-tang w-100 fs-5 fw-semibold" OnClick="BtnPlaceOrder_Click" />
                     </div>
                 </div>
             </div>

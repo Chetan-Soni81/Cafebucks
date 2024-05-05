@@ -176,7 +176,7 @@
 
                                         <div class="mb-4 pb-2">
                                             <asp:DropDownList ID="dropShipping" runat="server" CssClass="select p-2 w-100 rounded-2" AutoPostBack="true"  OnSelectedIndexChanged="dropShipping_SelectedIndexChanged">
-                                                <asp:ListItem Value="1">Standard-Delivery- Free</asp:ListItem>
+                                                <asp:ListItem Value="1">Standard-Delivery- ₹20</asp:ListItem>
                                                 <asp:ListItem Value="2">Express-Delivery- ₹50</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>

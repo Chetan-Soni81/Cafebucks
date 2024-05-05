@@ -13,6 +13,8 @@ namespace Cafebucks
 {
     public partial class CheckoutPage : System.Web.UI.Page
     {
+        static int userid = 0;
+        UserBLL userBll = new UserBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
@@ -20,9 +22,12 @@ namespace Cafebucks
                 Response.Redirect("LoginPage.aspx");
             }
 
+            userid = Convert.ToInt32(Session["User"]);
+
             if (!IsPostBack)
             {
                 BindCartItems();
+                BindUserData();
             }
         }
 
@@ -30,23 +35,26 @@ namespace Cafebucks
         {
             CartBLL bll = new CartBLL();
 
-            int userId = Convert.ToInt32(Session["User"]);
+            int userId = Convert.ToInt32(Session["User"]),
+                deliveryType = Convert.ToInt32(Request.QueryString["deliveryType"]);
 
             try
             {
-                CartSummaryObj summary = bll.GetCartItems(userId);
+                CartSummaryObj summary = bll.GetCartItems(userId, deliveryType);
 
                 repeatOrderItems.DataSource = summary.CartItems;
                 repeatOrderItems.DataBind();
 
                 lblTotalItems.Text = summary.TotalItems.ToString();
-                SetGstOnLabel(summary.TotalPrice);
-                lblFinalPrice.Text = String.Format("{0:0.00}", summary.TotalPrice);
-                //lblTotalPayable.Text = String.Format("{0:0.00}", summary.TotalPrice);
+                lblGstRate.Text = summary.GstApplied.ToString("0.00");
+                lblAddedGst.Text = summary.GstCharges.ToString("0.00");
+                lblTotalPayable.Text = String.Format("{0:0.00}", summary.TotalPrice);
+                lblDeliveryCharges.Text = summary.DeliveryCharges == 0 ? "Free" : String.Format("{0:0.00}", summary.DeliveryCharges);
+                lblFinalPrice.Text = String.Format("{0:0.00}", summary.FinalAmount);
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -54,16 +62,17 @@ namespace Cafebucks
 
         private void SetGstOnLabel(double totalpayable)
         {
-            int addedGST = (int) (totalpayable * .05);
+            int addedGST = (int)(totalpayable * .05);
 
             lblAddedGst.Text = String.Format("{0:0.00}", addedGST);
 
             int deliveryCharges = totalpayable > 100 ? 0 : 20;
 
-            if(deliveryCharges == 0)
+            if (deliveryCharges == 0)
             {
                 lblDeliveryCharges.Text = "Free";
-            } else
+            }
+            else
             {
                 lblDeliveryCharges.Text = "₹" + deliveryCharges;
             }
@@ -107,8 +116,7 @@ namespace Cafebucks
             }
             catch (Exception ex)
             {
-
-                throw;
+                Response.Write(ex.Message);
             }
         }
 
@@ -203,62 +211,37 @@ namespace Cafebucks
             }
         }
 
-        //    private void BindStates()
-        //    {
-        //        AddressBLL bll = new AddressBLL();
+        protected void BtnChangeAddress_Click(object sender, EventArgs e)
+        {
+            txtAddress.Text = lblAddress.Text;
+            lblAddress.Visible = false;
+            txtAddress.Visible = true;
+            btnSaveAddress.Visible = true;
+            BtnChangeAddress.Visible = false;
+        }
 
-        //        DataTable dt = bll.getStates();
+        protected void btnSaveAddress_Click(object sender, EventArgs e)
+        {
+            lblAddress.Text = userBll.UpdateAddress(txtAddress.Text.Trim(), userid);
+            lblAddress.Visible = true;
+            txtAddress.Text = "";
+            txtAddress.Visible = false;
+            BtnChangeAddress.Visible = true;
+            btnSaveAddress.Visible = false;
+        }
 
-        //        dropState.Items.Clear();
+        private void BindUserData()
+        {
+            UserObj user = userBll.GetUserDetails(userid);
 
-        //        dropState.DataSource = dt;
-        //        dropState.DataBind();
-        //        dropState.Items.Insert(0, new ListItem("Choose...", "0"));
-        //    }
+            if (user == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
 
-        //    protected void dropState_SelectedIndexChanged(object sender, EventArgs e)
-        //    {
-        //        try
-        //        {
-        //            int id = Convert.ToInt32(dropState.SelectedValue);
-
-        //            AddressBLL bll = new AddressBLL();
-
-        //            DataTable dt = bll.getCities(id);
-
-        //            dropCity.Items.Clear();
-
-        //            dropCity.DataSource = dt;
-        //            dropCity.DataBind();
-        //            dropCity.Items.Insert(0, new ListItem("Choose...", "0"));
-        //        }
-        //        catch (Exception)
-        //        {
-
-        //            throw;
-        //        }
-
-        //    }
-
-        //    protected void btnSubmit_Click(object sender, EventArgs e)
-        //    {
-        //        Address address = new Address();
-
-        //        try
-        //        {
-        //            address.House = txtBuilding.Text;
-        //            address.Street = txtStreet.Text;
-        //            address.Locality = txtAddressLine2.Text;
-        //            address.State = Convert.ToInt32(dropState.SelectedValue);
-        //            address.City = Convert.ToInt32(dropCity.SelectedValue);
-        //            address.PIN = Convert.ToInt32(txtZip.Text);
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw;
-        //        }
-        //    }
+            lblUsername.Text = $"{user.Firstname} {user.Lastname}";
+            lblPhoneNo.Text = user.Mobileno;
+            lblAddress.Text = user.Address;
+        }
     }
-
 }

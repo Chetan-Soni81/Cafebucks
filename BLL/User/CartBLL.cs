@@ -11,7 +11,7 @@ namespace BLL.User
 {
     public class CartBLL
     {
-        public CartSummaryObj GetCartItems(int userId)
+        public CartSummaryObj GetCartItems(int userId, int deliveryType)
         {
             CartSummaryObj summaryObj = new CartSummaryObj
             {
@@ -24,7 +24,8 @@ namespace BLL.User
 
             SqlParameter[] parameters =
             {
-                new SqlParameter("@user", userId)
+                new SqlParameter("@user", userId),
+                new SqlParameter("@deliveryType", deliveryType)
             };
 
             try
@@ -51,8 +52,19 @@ namespace BLL.User
                         );
 
                         summaryObj.TotalItems++;
-                        summaryObj.TotalPrice += Convert.ToDouble(sdr["price"]);
                     }
+                    if (sdr.NextResult())
+                    {
+                        if (sdr.Read())
+                        {
+                            summaryObj.GstApplied = Convert.ToDouble(sdr["gst_rate"]);
+                            summaryObj.GstCharges = Convert.ToDouble(sdr["gst_charged"]);
+                            summaryObj.TotalPrice = Convert.ToDouble(sdr["items_price"]);
+                            summaryObj.DeliveryCharges = Convert.ToDouble(sdr["delivery_charge"]);
+                            summaryObj.FinalAmount = Convert.ToDouble(sdr["final_price"]);
+                        }
+                    }
+                    sdr.Close();
                 }
             }
             catch (Exception)

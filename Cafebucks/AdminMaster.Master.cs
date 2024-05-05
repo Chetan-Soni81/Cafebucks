@@ -13,7 +13,7 @@ namespace Cafebucks
         {
             if (Session["admin"] == null)
             {
-                Response.Redirect("Home.aspx");
+                Response.Redirect("Default.aspx");
                 Session.Abandon();
             }
         }
@@ -21,7 +21,7 @@ namespace Cafebucks
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Default.aspx");
         }
     }
 }

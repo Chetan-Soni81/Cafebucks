@@ -22,12 +22,14 @@ namespace Cafebucks
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            gviewCategory.EditIndex = e.NewEditIndex;
+            BindGViewCategory();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            gviewCategory.EditIndex = -1;
+            BindGViewCategory();
         }
 
         protected void gviewCategory_RowUpdating(object sender, GridViewUpdateEventArgs e)

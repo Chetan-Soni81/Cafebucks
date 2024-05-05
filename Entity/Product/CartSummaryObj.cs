@@ -11,5 +11,9 @@ namespace Entity.Product
         public int TotalItems { get; set; }
         public double TotalPrice { get; set; }
         public List<CartObj> CartItems { get; set; }
+        public double GstApplied { get; set; }
+        public double GstCharges { get; set; }
+        public double DeliveryCharges { get; set; }
+        public double FinalAmount { get; set; }
     }
 }

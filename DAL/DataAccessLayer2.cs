@@ -16,9 +16,9 @@ namespace DAL
         public string connectionString;
         #endregion
         #region methods
-        private void OpenConnection()
+        private void OpenConnection()  
         {
-            connectionString = ConfigurationSettings.AppSettings["Connectioncafebucks"];
+            connectionString = ConfigurationSettings.AppSettings["ConnectionCafebucks"];
             conn = new SqlConnection(connectionString);
 
             if(conn.State != ConnectionState.Open)

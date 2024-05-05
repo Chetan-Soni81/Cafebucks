@@ -26,7 +26,7 @@ namespace Cafebucks
 
         private void BindProducts()
         {
-            ProductBLL bll = new ProductBLL();
+            BLL.Product.ProductBLL bll = new BLL.Product.ProductBLL();
             DataTable dt = bll.GetProducts();
             repeatProduct.DataSource = dt;
             repeatProduct.DataBind();
@@ -34,7 +34,7 @@ namespace Cafebucks
 
         private void DisplayProductItem()
         {
-            ProductBLL bll = new ProductBLL();
+            BLL.Product.ProductBLL bll = new BLL.Product.ProductBLL();
             int productId = Convert.ToInt32(Request.QueryString["product"]);
             ProductItem item = bll.showProduct(productId);
 

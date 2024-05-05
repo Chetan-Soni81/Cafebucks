@@ -98,5 +98,17 @@ namespace BLL.Product
             return item;
         }
 
+        public void DeleteProduct(int id)
+        {
+            DataAccessLayer2 dal = new DataAccessLayer2();
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@id", id)
+            };
+
+            dal.ExecuteNonQuery("usp_delete_product", parameters);
+        }
+
     }
 }

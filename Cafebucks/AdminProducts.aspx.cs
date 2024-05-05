@@ -13,7 +13,9 @@ namespace Cafebucks
 {
 	public partial class AdminProducts : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
+
+        ProductBLL bll = new ProductBLL();
+        protected void Page_Load(object sender, EventArgs e)
 		{
             if (!IsPostBack)
             {
@@ -25,12 +27,14 @@ namespace Cafebucks
 
         protected void gviewProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            gviewProducts.EditIndex = e.NewEditIndex;
+            BindGviewProducts();
         }
 
         protected void gviewProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            gviewProducts.EditIndex = -1;
+            BindGviewProducts();
         }
 
         protected void gviewProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -40,12 +44,12 @@ namespace Cafebucks
 
         protected void gviewProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
+            int id = Convert.ToInt32(((Button)sender).CommandArgument);
+            bll.DeleteProduct(id);
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            ProductBLL bll = new ProductBLL();
             try
             {
                 ProductItem product = new ProductItem();
@@ -116,6 +120,5 @@ namespace Cafebucks
             gviewProducts.DataSource = dt;
             gviewProducts.DataBind();
         }
-
     }
 }

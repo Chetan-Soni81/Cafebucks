@@ -1,90 +1,109 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Cafebucks.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Cafebucks.Home" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Test Application</title>
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" />
-    <script src="bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-</head>
-<body class="bg-light">
+<%--    <script type="text/javascript">
+ 
+    function showpop1(msg, title) {
+         
+        // alert("ok");
+        toastr.options = {
+            "closeButton":false,
+            "debug":false,
+            "newestOnTop":false,
+            "progressBar":true,
+            "positionClass":"toast-top-right",
+            "preventDuplicates":true,
+            "onclick":null,
+            "showDuration":"300",
+            "hideDuration":"1500",
+            "timeOut":"12000",
+            "extendedTimeOut":"1000",
+            "showEasing":"swing",
+            "hideEasing":"linear",
+            "showMethod":"fadeIn",
+            "hideMethod":"fadeOut"
+        }
+        // toastr['success'](msg, title);
+        var d = Date();
+ 
+        toastr.success(msg, title);
+        return false;
+    }
+    </script>--%>
 
-    <div class="container bg-white col-md-5 mt-4 p-3 rounded-2 shadow-lg">
-        <h3 class="text-center">Registration Form</h3>
-        <form id="form1" class="needs-validate" runat="server" novalidate="novalidate">
-            <div>
-                <label class="form-label">
-                    Name:
-                </label>
-                <div class="row">
-                    <div class="col"><asp:TextBox ID="txt_fname" runat="server" CssClass="form-control" placeholder="First Name"></asp:TextBox></div>
-                    <div class="col"><asp:TextBox ID="txt_mname" runat="server" CssClass="form-control" placeholder="Middle Name"></asp:TextBox></div>
-                    <div class="col"><asp:TextBox ID="txt_lname" runat="server" CssClass="form-control" placeholder="Last Name"></asp:TextBox></div>
-                </div>
-                
-                <asp:RequiredFieldValidator ID="valid_name" ControlToValidate="txt_fname" ErrorMessage="* Name is required" runat="server" ForeColor="Red"></asp:RequiredFieldValidator>
+    <div class='home__main'>
+        <div class="home__panel">
+            <div class="home__bg">
+                <img src="images/home-bg.jpg" alt="background" />
             </div>
-            <div>
-                <label class="form-label">
-                    Username:
-                </label>
-                <asp:TextBox ID="txt_username" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="valid_username" ControlToValidate="txt_username" ErrorMessage="* Username is required" runat="server" ForeColor="Red"></asp:RequiredFieldValidator>
-            </div>
-            <div>
-                <label class="form-label">Gender: </label>
-                <asp:RadioButtonList ID="radio_gender" runat="server" RepeatDirection="Horizontal" CellPadding="4">
-                    <asp:ListItem Value="1">Male</asp:ListItem>
-                    <asp:ListItem Value="0">Female</asp:ListItem>
-                    <asp:ListItem Value="">Others</asp:ListItem>
-                </asp:RadioButtonList>
-                <asp:RequiredFieldValidator ID="valid_gender" runat="server" ControlToValidate="radio_gender" ErrorMessage="* Please select your gender" ForeColor="Red"></asp:RequiredFieldValidator>
-            </div>
-            <div>
-                <label class="form-label">
-                    Email:
-                </label>
-                <asp:TextBox ID="txt_email" runat="server" CssClass="form-control" TextMode="Email" placeholder="E-mail"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="valid_email" runat="server" ControlToValidate="txt_email" ErrorMessage="* Email is required" ForeColor="Red"></asp:RequiredFieldValidator>
-            </div>
-            <div>
-                <label class="form-label">
-                    Mobile No:
-                </label>
-                <asp:TextBox ID="txt_mobileno" runat="server" CssClass="form-control" TextMode="Phone" placeholder="Mobile no"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="valid_mobileno" runat="server" ControlToValidate="txt_mobileno" ErrorMessage="* Mobile no is required" ForeColor="Red"></asp:RequiredFieldValidator>
-            </div>
-            <div>
-                <label class="form-label">
-                    Languages Known:
-                </label>
-                <div class="form-check form-check-inline">
-                    <asp:CheckBox ID="check_hindi" runat="server" CssClass="form-check-input" /><label class="form-check-label">Hindi</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <asp:CheckBox ID="check_english" runat="server" CssClass="form-check-input" /><label class="form-check-label">English</label>
+            <div class="home__content">
+                <h1 class="title">CaféBucks
+                </h1>
+                <p>
+                    Discover the best Food and Drinks in Ayodhya-Faizabad
+                </p>
+                <div class="search__container">
+                    <div class="search__box">
+                        <div class="search__option">
+                            <i class="fa-solid fa-location-dot text-danger"></i>
+                            <input type="text" placeholder='Ayodhya-Faizabad' />
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div>
+                        <div class="search__divider"></div>
+                        <hr class='search_v_divider' />
+                        <div class="search__text">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input placeholder='Search for Restaurant, cuisine or a dish' />
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <label class="form-label">
-                    Password:
-                </label>
-                <asp:TextBox ID="txt_password" runat="server" CssClass="form-control" TextMode="Password" placeholder="Password"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="valid_password" runat="server" ControlToValidate="txt_password" ErrorMessage="* Password is required" ForeColor="Red"></asp:RequiredFieldValidator>
+
+        </div>
+
+        <div class="card__repeater">
+            <div class="card card_home">
+                <img src="images/card-dish.jpg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Order Food</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Profile Picture:</label>
-                <asp:FileUpload ID="file_profile" runat="server" CssClass="form-control" accept="image/*" />
+
+            <div class="card card_home">
+                <img src="images/card-restaurant.jpg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Check Restaurants</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-            <div class="mb-4">
-                <asp:Button runat="server" ID="submitBTN" CssClass="btn btn-primary" OnClick="submitBTN_Click" Text="Submit" />
+
+            <div class="card card_home">
+                <img src="images/card-cuisine.jpg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Explore Cuisines</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-            <div class="p-2">
-                <div id="result_p" runat="server" Visible="false" class="text-danger">* User Already Exists</div>
+
+            <div class="card card_home">
+                <img src="images/card-cuisine.jpg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">Hot Deals</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-            <a href="Login.aspx">Already Have an account? Login here</a>
-        </form>
+        </div>
     </div>
-</body>
-</html>
+
+    <%--<asp:Button ID="btnPopup" runat="server" Text="Click me!!!" OnClick="btnPopup_Click"/>--%>
+</asp:Content>

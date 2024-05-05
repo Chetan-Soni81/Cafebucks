@@ -7,11 +7,12 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" />
+    <%--<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" />--%>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <%--<link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css" />--%>
+    <link rel="stylesheet" href="Content/font-awesome.min.css" />    
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css" />
-    <script src="bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
     <script>
@@ -34,14 +35,14 @@
             <div class="header__main">
                 <div class="container">
                     <div class="navigation">
-                        <a href="/Home.aspx" class="nav__title">
+                        <a href="/Default.aspx" class="nav__title">
                             <img src="images/favicon-32x32.png" width="40" height="32" alt="logo" />
                             CafeBucks
                         </a>
 
                         <ul class="nav col-12 col-lg-auto text-small nav__links">
                             <li class='nav__item nav-link'>
-                                <a href="/Home.aspx" class="nav-item">
+                                <a href="/Default.aspx" class="nav-item">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 576 512">
                                         <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                         <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
@@ -50,7 +51,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav__item nav-link">
+<%--                            <li class="nav__item nav-link">
                                 <a href="/dashboard" class="nav-item">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 512 512">
                                         <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -68,7 +69,7 @@
                                     </svg>
                                     Orders
                                 </a>
-                            </li>
+                            </li>--%>
 
                             <li class='nav__item nav-link'>
                                 <a href="/CartPage.aspx" class="nav-item">
@@ -85,7 +86,6 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentcolor" viewBox="0 0 448 512">
                                         <path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 96c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24zm200-24c0 13.3-10.7 24-24 24s-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24z" />
                                     </svg>
-                                    <i class="fa-sharp fa-solid fa-grid"></i>
                                     Products
                                 </a>
                             </li>
@@ -99,7 +99,7 @@
                                     <div class="dropdown-content">
                                         <a href="/LoginPage.aspx">Login/Signup</a>
                                         <a href="/order">Orders</a>
-                                        <a href="/Home.aspx">Account Settings</a>
+                                        <a href="/Default.aspx">Account Settings</a>
                                     </div>
                                     Customers
                                 </span>
@@ -114,7 +114,7 @@
                                     <div class="dropdown-content">
                                         <asp:LinkButton ID="BtnLogout" runat="server" OnClick="BtnLogout_Click" Text="Logout"/>
                                         <a href="/order">Orders</a>
-                                        <a href="/Home.aspx">Account Settings</a>
+                                        <a href="/Default.aspx">Account Settings</a>
                                     </div>
                                     <asp:Label ID="txtName" runat="server" Text="Unknown" />
                                 </span>
@@ -248,7 +248,9 @@
         </footer>
 
     </form>
-
-
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 </body>
 </html>

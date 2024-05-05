@@ -24,7 +24,7 @@ namespace BLL.User
 
             try
             {
-                using(SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_show_userbyid", parameters))
+                using (SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_show_userbyid", parameters))
                 {
                     while (sdr.Read())
                     {
@@ -34,6 +34,41 @@ namespace BLL.User
                         obj.Email = (string)sdr["emailid"];
                         obj.Mobileno = (string)sdr["phoneno"];
                         obj.Username = (string)sdr["username"];
+
+                        sdr.Read();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return obj;
+        }
+
+        public UserObj GetUserDetails(int id)
+        {
+            UserObj obj = new UserObj();
+            DataAccessLayer2 dal = new DataAccessLayer2();
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@user", id)
+            };
+
+            try
+            {
+                using (SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_get_userdetails", parameters))
+                {
+                    while (sdr.Read())
+                    {
+                        obj.Id = Convert.ToInt32(sdr["userid"]);
+                        obj.Firstname = (string)sdr["first_name"];
+                        obj.Lastname = (string)sdr["last_name"];
+                        obj.Email = (string)sdr["email_id"];
+                        obj.Mobileno = (string)sdr["phone_no"];
+                        obj.Address = sdr["address"].ToString();
 
                         sdr.Read();
                     }
@@ -64,7 +99,7 @@ namespace BLL.User
 
             object o = dal.ExecuteScalar("usp_register_user", parameters);
 
-            if(o == null)
+            if (o == null)
             {
                 return 0;
             }
@@ -89,7 +124,7 @@ namespace BLL.User
             {
                 object o = dal.ExecuteScalar("usp_login_user", parameters);
 
-                if(o == null)
+                if (o == null)
                 {
                     return 0;
                 }
@@ -104,5 +139,22 @@ namespace BLL.User
 
             return i;
         }
+        public string UpdateAddress(string address, int id)
+        {
+            DataAccessLayer2 dal = new DataAccessLayer2();
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@userid", id),
+                new SqlParameter("@address", address)
+            };
+
+            object o = dal.ExecuteScalar("usp_update_address", parameters);
+
+            address = o.ToString();
+
+            return address;
+        }
     }
+
 }

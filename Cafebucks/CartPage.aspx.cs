@@ -35,15 +35,15 @@ namespace Cafebucks
 
             try
             {
-                CartSummaryObj summary = bll.GetCartItems(userId);
+                CartSummaryObj summary = bll.GetCartItems(userId, Convert.ToInt32(dropShipping.SelectedValue));
 
                 repeatCartItems.DataSource = summary.CartItems;
                 repeatCartItems.DataBind();
 
                 lblCount.Text = summary.TotalItems.ToString();
                 lblTotalItems.Text = summary.TotalItems.ToString();
-                lblFinalPrice.Text = String.Format("{0:0.00}",summary.TotalPrice);
                 lblTotalPrice.Text = String.Format("{0:0.00}",summary.TotalPrice);
+                lblFinalPrice.Text = String.Format("{0:0.00}",summary.TotalPrice + summary.DeliveryCharges);
 
             }
             catch (Exception)
@@ -100,13 +100,7 @@ namespace Cafebucks
 
         protected void dropShipping_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dropShipping.SelectedValue == "1")
-            {
-                lblFinalPrice.Text = lblTotalPrice.Text;
-            } else if (dropShipping.SelectedValue == "2")
-            {
-                lblFinalPrice.Text = String.Format("{0:0.00}", (Convert.ToDouble(lblTotalPrice.Text) + 50));
-            }
+            BindCartItems();
         }
 
         protected void btnRemoveItem_Click(object sender, EventArgs e)
@@ -196,7 +190,7 @@ namespace Cafebucks
 
         protected void btnPlaceOrder_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("CheckoutPage.aspx");
+            Response.Redirect("CheckoutPage.aspx?deliveryType="+dropShipping.SelectedValue);
         }
     }
 }
