@@ -11,19 +11,19 @@ using System.IO;
 
 namespace Cafebucks
 {
-	public partial class AdminProducts : System.Web.UI.Page
-	{
+    public partial class AdminProducts : System.Web.UI.Page
+    {
 
         ProductBLL bll = new ProductBLL();
         protected void Page_Load(object sender, EventArgs e)
-		{
+        {
             if (!IsPostBack)
             {
                 BindCategories();
                 BindSubCategories();
                 BindGviewProducts();
             }
-		}
+        }
 
         protected void gviewProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -53,21 +53,21 @@ namespace Cafebucks
             try
             {
                 ProductItem product = new ProductItem();
-                product.ProductName = (string) txtProductName.Text;
-                product.Price = Convert.ToInt32(txtPrice.Text);
-                product.Description = (string) txtDescription.Text;
+                product.ProductName = txtProductName.Text.Trim();
+                product.Price = Convert.ToInt32(txtPrice.Text.Trim());
+                product.Description = (string)txtDescription.Text.Trim();
 
                 string path = "";
                 if (fileThumbnail.HasFiles)
                 {
                     string filename = DateTime.Now.ToString("yyyymmddhhmmtt") + Path.GetFileName(fileThumbnail.FileName);
-                        path = Server.MapPath("~/Uploads/Product/") + filename;
-                        //file_profile.SaveAs(path);
-                        product.Thumbnail = "/Uploads/Product/" + filename;
+                    path = Server.MapPath("~/Uploads/Product/") + filename;
+                    //file_profile.SaveAs(path);
+                    product.Thumbnail = "/Uploads/Product/" + filename;
                 }
 
-                product.Category = dropCategory.SelectedValue;
-                product.SubCategory = dropSubCategory.SelectedValue;
+                product.Category = dropCategory.SelectedIndex > 0 ? dropCategory.SelectedValue : "0";
+                product.SubCategory = dropSubCategory.SelectedIndex > 0 ? dropSubCategory.SelectedValue : "105";
 
                 product.Image1 = "";
                 product.Image2 = "";
@@ -80,7 +80,6 @@ namespace Cafebucks
                 {
                     fileThumbnail.SaveAs(path);
                     BindGviewProducts();
-
                 }
             }
             catch
@@ -97,7 +96,7 @@ namespace Cafebucks
                 dropCategory.DataSource = dt;
                 dropCategory.DataBind();
             }
-            dropCategory.Items.Insert(0, new ListItem("---Select a Category--", "0"));
+            dropCategory.Items.Insert(0, new ListItem("---Select a Category--", ""));
         }
 
         private void BindSubCategories()
@@ -108,7 +107,7 @@ namespace Cafebucks
                 dropSubCategory.DataSource = dt;
                 dropSubCategory.DataBind();
             }
-            dropSubCategory.Items.Insert(0, new ListItem("---Select a Sub Category--", "105"));
+            dropSubCategory.Items.Insert(0, new ListItem("---Select a Sub Category--", ""));
         }
 
         private void BindGviewProducts()

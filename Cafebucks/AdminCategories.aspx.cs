@@ -75,7 +75,9 @@ namespace Cafebucks
         {
             try
             {
-                string category = txtCategory.Text;
+                string category = txtCategory.Text.Trim();
+
+                if (category.Length == 0) return;
 
                 int i = bll.AddCategory(category);
 
