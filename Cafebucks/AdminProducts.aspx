@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="admin_prod_main">
+    <div class="p-3 container-fluid bg-light">
         <div class="prod_form_panel">
             <div class=".form">
                 <h3 class="text-center">Add Product</h3>

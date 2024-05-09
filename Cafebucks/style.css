@@ -22,7 +22,7 @@
     font-weight: 600;
 }
 
- .active {
+.active {
     font-weight: 700 !important;
 }
 
@@ -60,7 +60,7 @@
         color: #fff;
     }
 
-        .nav__item a  svg, .nav__item span svg {
+        .nav__item a svg, .nav__item span svg {
             display: block;
             width: 24px;
             height: 24px;
@@ -155,7 +155,6 @@ footer {
     footer {
         text-align: center;
     }
-
 }
 
 .home__panel {
@@ -336,6 +335,7 @@ footer {
     .admin_login_panel h3 {
         text-align: center;
         margin-bottom: 0.5rem;
+        background-color: #fff;
     }
 
     .admin_login_panel .button {
@@ -508,15 +508,15 @@ footer {
     background-color: hsl(105, 54%, 46%);
 }
 
-.catalog__sort div {
+    .catalog__sort div {
         padding: 0.5rem 2rem;
         color: white;
         cursor: pointer;
-}
+    }
 
-.catalog__sort div:hover {
-    background-color: hsl(105, 54%, 60%);
-}
+        .catalog__sort div:hover {
+            background-color: hsl(105, 54%, 60%);
+        }
 
 .catalog__repeater {
     background: #ddd;
@@ -542,9 +542,9 @@ footer {
     font-weight: 600;
 }
 
-    .cate__main button:hover {
-        opacity: 0.8;
-    }
+.cate__main button:hover {
+    opacity: 0.8;
+}
 
 .cate_form_panel .form {
     margin: 0;
@@ -587,20 +587,17 @@ footer {
         font-weight: 700;
     }
 
-.admin_prod_main {
-    padding: 1rem;
+
+.admin_prod_main button {
+    border: none;
+    outline: none;
+    padding: 0.3rem 1rem;
+    font-weight: 600;
 }
 
-    .admin_prod_main button {
-        border: none;
-        outline: none;
-        padding: 0.3rem 1rem;
-        font-weight: 600;
+    .admin_prod_main button:hover {
+        opacity: 0.8;
     }
-
-        .admin_prod_main button:hover {
-            opacity: 0.8;
-        }
 
 .prod_form_panel {
     /*width: 40%;*/
@@ -620,11 +617,11 @@ footer {
         border-radius: 0;
     }
 
-    .prod_form_panel_button {
-        width: 100%;
-        background: #0aad2d;
-        color: white;
-    }
+.prod_form_panel_button {
+    width: 100%;
+    background: #0aad2d;
+    color: white;
+}
 
 .prod_table_panel {
     margin-top: 1rem;
@@ -899,7 +896,6 @@ footer {
         /*width: 100%;*/
         min-width: none;
     }
-
 }
 
 

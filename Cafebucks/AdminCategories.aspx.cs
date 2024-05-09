@@ -12,6 +12,7 @@ namespace Cafebucks
 {
     public partial class AdminCategories : System.Web.UI.Page
     {
+        CategoryBLL bll = new CategoryBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,17 +35,35 @@ namespace Cafebucks
 
         protected void gviewCategory_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            GridViewRow row = gviewCategory.Rows[e.RowIndex];
 
+            string categoryName = ((TextBox)row.FindControl("txtCategoryName")).Text.Trim();
+            bool isActive = ((CheckBox)row.FindControl("chkIsActive")).Checked;
+            string datakey = gviewCategory.DataKeys[e.RowIndex].Values["categoryId"].ToString();
+
+            int i = bll.UpdateCategory(new Category
+            {
+                Id = Convert.ToInt32(datakey),
+                CategoryName = categoryName,
+                isActive = isActive
+            });
+
+            gviewCategory.EditIndex = -1;
+            BindGViewCategory();
         }
 
         protected void gviewCategory_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int id = Convert.ToInt32(gviewCategory.DataKeys[e.RowIndex].Values["categoryId"]);
 
+            int i = bll.DeleteCategory(id);
+
+            gviewCategory.EditIndex = -1;
+            BindGViewCategory();
         }
 
         protected void BindGViewCategory()
         {
-            CategoryBLL bll = new CategoryBLL();
 
             DataTable dt = bll.GetCategories();
 
@@ -54,7 +73,6 @@ namespace Cafebucks
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            CategoryBLL bll = new CategoryBLL();
             try
             {
                 string category = txtCategory.Text;

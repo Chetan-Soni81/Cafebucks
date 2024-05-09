@@ -24,6 +24,15 @@ namespace Cafebucks
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
+        /// validUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validUsername;
+
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Cafebucks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// validPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validPassword;
 
         /// <summary>
         /// btnSubmit control.

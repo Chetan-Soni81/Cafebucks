@@ -37,7 +37,15 @@
                                     <asp:TextBox ID="txtCategoryName" runat="server" Text='<%# Eval("categoryName") %>' />
                                 </EditItemTemplate>
                             </asp:TemplateField>
-                            <asp:CheckBoxField DataField="isActive" HeaderText="Is Active" />
+                            <%--<asp:CheckBoxField DataField="isActive" HeaderText="Is Active" />--%>
+                            <asp:TemplateField HeaderText="Is Active">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblIsActive" runat="server" Text='<%# Eval("isActive") %>' />
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="chkIsActive" runat="server" Checked='<%# Eval("isActive") %>' />
+                                </EditItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <asp:Button ID="btnEdit" runat="server" CommandName="Edit" CssClass="btn btn-sm btn-warning" Text="Edit" />
@@ -45,7 +53,7 @@
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update" CssClass="btn btn-sm btn-success"><i class="fa fa-save"></i> Save</asp:LinkButton>
-                                    <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" CssClass="btn btn-sm btn-danger" Text="Cancel" />
+                                    <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" CssClass="btn btn-sm btn-dark" Text="Cancel" />
                                 </EditItemTemplate>
                             </asp:TemplateField>
                         </Columns>
