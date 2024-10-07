@@ -51,7 +51,6 @@
             <div class="table-responsive">
                 <asp:GridView runat="server" ID="gviewProducts" DataKeyNames="productId" CssClass="table table-hover table-bordered overflow-auto " AutoGenerateColumns="False" OnRowEditing="gviewProducts_RowEditing" OnRowCancelingEdit="gviewProducts_RowCancelingEdit" OnRowUpdating="gviewProducts_RowUpdating" OnRowDeleting="gviewProducts_RowDeleting">
                     <Columns>
-                        <asp:BoundField DataField="productName" HeaderText="Name" />
                         <asp:TemplateField HeaderText="Name">
                             <ItemTemplate>
                                 <asp:Label ID="lblProductName" runat="server" Text='<%# Eval("productName") %>'></asp:Label>
@@ -68,11 +67,25 @@
                                 <asp:TextBox ID="txtPrice" runat="server" Text='<%# Eval("price") %>' CssClass="w-100 px-2"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="category" HeaderText="Category" />
-                        <asp:BoundField DataField="subcategory" HeaderText="Sub-Category" />
+                        <asp:TemplateField HeaderText="Category">
+                            <ItemTemplate>
+                                <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("categoryName") %>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Sub-Category">
+                            <ItemTemplate>
+                                <asp:Label ID="lblSubCategory" runat="server" Text='<%# Eval("subcategoryName") %>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+
+                            </EditItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Thumbnail">
                             <ItemTemplate>
-                                <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("mainImage") %>' Height="50" />
+                                <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("thumbnail") %>' Height="50" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="description" HeaderText="Description" ItemStyle-Width="325" />
