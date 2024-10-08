@@ -66,13 +66,9 @@ namespace Cafebucks
                     product.Thumbnail = "/Uploads/Product/" + filename;
                 }
 
-                product.Category = dropCategory.SelectedIndex > 0 ? dropCategory.SelectedValue : "0";
-                product.SubCategory = dropSubCategory.SelectedIndex > 0 ? dropSubCategory.SelectedValue : "105";
+                product.Category = dropCategory.SelectedIndex > 0 ? new Category { Id = Convert.ToInt32(dropCategory.SelectedValue), CategoryName = dropCategory.SelectedItem.Text.Trim() } : new Category { Id=0};
+                product.SubCategory = dropCategory.SelectedIndex > 0 ? new Category { Id = Convert.ToInt32(dropCategory.SelectedValue), CategoryName = dropCategory.SelectedItem.Text.Trim() } : new Category { Id = 105 };
 
-                product.Image1 = "";
-                product.Image2 = "";
-                product.Image3 = "";
-                product.Image4 = "";
 
                 int i = bll.CreateProduct(product);
 

@@ -23,10 +23,6 @@ namespace BLL.Product
                 new SqlParameter("@price", product.Price),
                 new SqlParameter("@description", product.Description),
                 new SqlParameter("@image1", product.Thumbnail),
-                new SqlParameter("@image2", product.Image1),
-                new SqlParameter("@image3", product.Image2),
-                new SqlParameter("@image4", product.Image3),
-                new SqlParameter("@image5", product.Image4),
                 new SqlParameter("@cate", product.Category),
                 new SqlParameter("@subcate", product.SubCategory),
             };
@@ -56,6 +52,47 @@ namespace BLL.Product
                 }
             }
         }
+
+        public List<ProductItem> GetProductList(int length, int start)
+        {
+            DataAccessLayer2 dal = new DataAccessLayer2();
+            List<ProductItem> items = new List<ProductItem>();
+            using (SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_show_product", new SqlParameter[]
+            {
+                new SqlParameter("@start", start),
+                new SqlParameter("@length", length),
+            }))
+            {
+                while (sdr.Read())
+                {
+                    items.Add(new ProductItem
+                    {
+                        Id = sdr.GetInt32(0),
+                        ProductName = sdr.GetString(1),
+                        Price = sdr.GetInt32(2),
+                        TotalRating = sdr.GetInt32(3),
+                        RatingNo = sdr.GetInt32(4),
+                        Description = sdr.GetString(5),
+                        Thumbnail = sdr.GetString(6),
+                        Category = new Category
+                        {
+                            Id = sdr.GetInt32(7),
+                            CategoryName = sdr.GetString(8),
+                        },
+                        SubCategory = new Category
+                        {
+                            Id = sdr.GetInt32(9),
+                            CategoryName = sdr.GetString(10),
+                        },
+                        IsAvailable = sdr.GetBoolean(11),
+                        IsActive = sdr.GetBoolean(12)
+
+                    });
+
+                }
+            }
+            return items;
+        }
         public ProductItem showProduct(int id)
         {
             DataAccessLayer2 dal = new DataAccessLayer2();
@@ -69,24 +106,19 @@ namespace BLL.Product
 
             try
             {
-                using( SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_display_product_to_buy", parameters))
+                using (SqlDataReader sdr = dal.SelectRecordsByDataReader("usp_display_product_to_buy", parameters))
                 {
                     while (sdr.Read())
                     {
-                        item.ProductName = (string) sdr["productName"];
+                        item.ProductName = (string)sdr["productName"];
                         item.Price = Convert.ToInt32(sdr["price"]);
                         item.TotalRating = Convert.ToInt32(sdr["totalRating"]);
                         item.RatingNo = Convert.ToInt32(sdr["ratingNo"]);
                         item.Description = (string)sdr["description"];
-                        item.Thumbnail = (string)sdr["mainImage"];
-                        item.Image1 = (string)sdr["image2"];
-                        item.Image2 = (string)sdr["image3"];
-                        item.Image3 = (string)sdr["image4"];
-                        item.Image4 = (string)sdr["image5"];
-                        item.Category = (string)sdr["category"];
-                        item.SubCategory = (string)sdr["subcategory"];
+                        item.Thumbnail = (string)sdr["thumbnail"];
+                        item.Category = new Category { CategoryName = (string)sdr["category"] };
+                        item.SubCategory = new Category { CategoryName = (string)sdr["subcategory"] };
 
-                        sdr.Read();
                     }
                 }
             }

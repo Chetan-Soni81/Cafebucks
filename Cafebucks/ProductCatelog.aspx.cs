@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL.Product;
+using Entity.Product;
 
 namespace Cafebucks
 {
@@ -15,10 +17,27 @@ namespace Cafebucks
         {
             if (!IsPostBack)
             {
-                BindProducts();
+                //BindProducts();
                 BindCategories();
             }
         }
+
+        [WebMethod]
+        public static List<ProductItem> GetProducts()
+        {
+            try
+            {
+                int length = 10, start = 0;
+                ProductBLL bll = new ProductBLL();
+                var item = bll.GetProductList(length, start);
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return new List<ProductItem>();
+            }
+        }
+
 
         private void BindProducts()
         {

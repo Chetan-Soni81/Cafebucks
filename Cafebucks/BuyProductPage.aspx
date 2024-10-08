@@ -48,7 +48,7 @@
                     <ItemTemplate>
                         <div class="thumb-wrapper">
                             <div class="img-box">
-                                <img src='<%# Eval("mainImage")%>' class="img-fluid" alt='<%# Eval("productName") %>' />
+                                <img src='<%# Eval("thumbnail")%>' class="img-fluid" alt='<%# Eval("productName") %>' />
                             </div>
                             <div class="thumb-content">
                                 <h4><%# Eval("productName") %></h4>

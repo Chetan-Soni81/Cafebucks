@@ -39,7 +39,7 @@ namespace Cafebucks
             ProductItem item = bll.showProduct(productId);
 
             imageProduct.ImageUrl = item.Thumbnail;
-            lblCategory.Text = item.Category;
+            lblCategory.Text = item.Category.CategoryName;
             lblProductName.Text = item.ProductName;
             lblOriginalPrice.Text = item.Price.ToString();
 

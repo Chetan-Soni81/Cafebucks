@@ -57,12 +57,12 @@
                 <div>Price Low-To-High</div>
                 <div>Popularity</div>
             </section>
-            <section class="catalog__repeater">
-                <asp:Repeater runat="server" ID="repeatProduct">
+            <section class="catalog__repeater" id="catalog_wrapper">
+                <%--<asp:Repeater runat="server" ID="repeatProduct">
                     <ItemTemplate>
                         <div class="thumb-wrapper">
                             <div class="img-box">
-                                <img src='<%# Eval("mainImage")%>' class="img-fluid" alt='<%# Eval("productName") %>' />
+                                <img src='<%# Eval("thumbnail")%>' class="img-fluid" alt='<%# Eval("productName") %>' />
                             </div>
                             <div class="thumb-content">
                                 <h4><%# Eval("productName") %></h4>
@@ -80,8 +80,52 @@
                             </div>
                         </div>
                     </ItemTemplate>
-                </asp:Repeater>
+                </asp:Repeater>--%>
             </section>
         </div>
     </main>
+    <script>
+        const length = 10;
+        var start = 0;
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: `ProductCatelog.aspx/GetProducts?start=${start}&length=${length}`,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var items = response.d;
+                    var $wrapper = $('#catalog_wrapper');
+                    $wrapper.html('');
+                    var sHTML = "";
+                    items.map(function (a) {
+                        sHTML += '<div class="thumb-wrapper">' +
+                        '<div class="img-box">' +
+                        '<img src="'+a.Thumbnail+'" />' +
+                        '</div>' +
+                        '<div class="thumb-content">' +
+                        '<h4>'+ a.ProductName +'</h4>' +
+                        '<p class="item-price">'+a.Price+'</span></p>' +
+                        '<div class="star-rating">' +
+                        '<ul class="list-inline">' +
+                        '<li class="list-inline-item"><i class="fa-solid fa-star" style="color: #ffc000;"></i></li>' +
+                        '<li class="list-inline-item"><i class="fa-solid fa-star" style="color: #ffc000;"></i></li>' +
+                        '<li class="list-inline-item"><i class="fa-solid fa-star" style="color: #ffc000;"></i></li>' +
+                        '<li class="list-inline-item"><i class="fa-solid fa-star" style="color: #ffc000;"></i></li>' +
+                        '<li class="list-inline-item"><i class="fa-solid fa-star" style="color: #ffc000;"></i></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '<a href="BuyProductPage.aspx?product='+a.Id+'" class="btn">Buy Now</a>' +
+                            '</div>'+
+                        '</div>'
+                    });
+                    $wrapper.html(sHTML);
+                },
+                error: function (response) {
+                    console.log(response)
+                }
+            })
+        });
+    </script>
 </asp:Content>

@@ -48,6 +48,7 @@
     <Compile Include="Product\CartObj.cs" />
     <Compile Include="Product\CartSummaryObj.cs" />
     <Compile Include="Product\Category.cs" />
+    <Compile Include="Product\ProductImage.cs" />
     <Compile Include="Product\ProductItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\Address.cs" />
