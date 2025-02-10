@@ -19,16 +19,32 @@ namespace Cafebucks
         {
             if (!IsPostBack)
             {
-                BindCategories();
-                BindSubCategories();
+                BindCategories(dropCategory);
+                BindSubCategories(dropSubCategory);
                 BindGviewProducts();
             }
         }
 
         protected void gviewProducts_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            gviewProducts.EditIndex = e.NewEditIndex;
+            int i = e.NewEditIndex;
+            GridViewRow row = gviewProducts.Rows[i];
+
+            string category = ((HiddenField)row.FindControl("hdnCategory")).Value,
+                subcategory = ((HiddenField)row.FindControl("hdnSubCategory")).Value;
+                
+            gviewProducts.EditIndex = i;
             BindGviewProducts();
+
+            row = gviewProducts.Rows[i];
+            DropDownList ddlCat = (DropDownList)row.FindControl("ddlCategory");
+            DropDownList ddlSubCat = (DropDownList)row.FindControl("ddlSubCategory");
+
+            BindCategories(ddlCat);
+            BindSubCategories(ddlSubCat);
+
+            ddlCat.SelectedValue = category;
+            ddlSubCat.SelectedValue = subcategory;
         }
 
         protected void gviewProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -84,26 +100,26 @@ namespace Cafebucks
             }
         }
 
-        private void BindCategories()
+        private void BindCategories(DropDownList dropDownList)
         {
             CategoryBLL bll = new CategoryBLL();
             using (DataTable dt = bll.GetCategories())
             {
-                dropCategory.DataSource = dt;
-                dropCategory.DataBind();
+                dropDownList.DataSource = dt;
+                dropDownList.DataBind();
             }
-            dropCategory.Items.Insert(0, new ListItem("---Select a Category--", ""));
+            dropDownList.Items.Insert(0, new ListItem("---Select a Category--", ""));
         }
 
-        private void BindSubCategories()
+        private void BindSubCategories(DropDownList dropDownList)
         {
             CategoryBLL bll = new CategoryBLL();
             using (DataTable dt = bll.GetCategories())
             {
-                dropSubCategory.DataSource = dt;
-                dropSubCategory.DataBind();
+                dropDownList.DataSource = dt;
+                dropDownList.DataBind();
             }
-            dropSubCategory.Items.Insert(0, new ListItem("---Select a Sub Category--", ""));
+            dropDownList.Items.Insert(0, new ListItem("---Select a Sub Category--", ""));
         }
 
         private void BindGviewProducts()

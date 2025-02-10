@@ -43,8 +43,8 @@ namespace Cafebucks
         {
             ProductBLL bll = new ProductBLL();
             DataTable dt = bll.GetProducts();
-            repeatProduct.DataSource = dt;
-            repeatProduct.DataBind();
+            //repeatProduct.DataSource = dt;
+            //repeatProduct.DataBind();
         }
 
         private void BindCategories()

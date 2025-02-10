@@ -70,17 +70,23 @@
                         <asp:TemplateField HeaderText="Category">
                             <ItemTemplate>
                                 <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("categoryName") %>'></asp:Label>
+                                <asp:HiddenField ID="hdnCategory" runat="server" Value='<%# Eval("category") %>' />
                             </ItemTemplate>
                             <EditItemTemplate>
+                                <asp:DropDownList ID="ddlCategory" runat="server" CssClass="w-100 px-2" DataValueField="categoryId" DataTextField="categoryName" >
 
+                                </asp:DropDownList>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Sub-Category">
                             <ItemTemplate>
                                 <asp:Label ID="lblSubCategory" runat="server" Text='<%# Eval("subcategoryName") %>'></asp:Label>
+                                <asp:HiddenField ID="hdnSubCategory" runat="server" Value='<%# Eval("subcategory") %>' />
                             </ItemTemplate>
                             <EditItemTemplate>
+                                <asp:DropDownList ID="ddlSubCategory" runat="server" CssClass="w-100 px-2" DataValueField="categoryId" DataTextField="categoryName">
 
+                                </asp:DropDownList>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Thumbnail">
